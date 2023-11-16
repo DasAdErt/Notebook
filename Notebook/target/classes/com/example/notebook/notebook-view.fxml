@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
@@ -28,5 +29,10 @@
             <Font size="15.0" />
          </font>
       </Button>
+      <Label fx:id="computerNameLabel" layoutX="120.0" layoutY="248.0" text="username" AnchorPane.leftAnchor="120.0">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <ImageView fx:id="avatarImageView" fitHeight="40.0" fitWidth="40.0" layoutX="70.0" layoutY="241.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

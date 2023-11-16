@@ -59,8 +59,6 @@ public class LoginController {
             int password = Integer.parseInt(passwordField.getText());
 
             if (password == generatedCode && loginField.getText().equals(phoneNumber)){
-//            messageBox.setContentText("Успешно вошли!");
-//            messageBox.show();
                 System.out.println("Вошёл в систему!");
 
                 FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("notebook-view.fxml"));

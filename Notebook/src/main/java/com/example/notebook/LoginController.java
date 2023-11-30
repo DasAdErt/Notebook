@@ -46,15 +46,21 @@ public class LoginController {
     @FXML
     public void onButtonClick() throws IOException, RuntimeException {
         try {
-            passwordLabel.setDisable(false);
-            passwordField.setDisable(false);
-            buttonSignIn.setText("Sign in");
-
             Alert messageBox = new Alert(Alert.AlertType.INFORMATION);
-            messageBox.setTitle("Confirmation code");
-            messageBox.setHeaderText(null);
-            messageBox.setContentText("Generated Code: " + generatedCode);
-            messageBox.show();
+
+            if (!loginField.getText().isEmpty()){
+                if (buttonSignIn.getText().equals("Get Code")){
+                    passwordLabel.setDisable(false);
+                    passwordField.setDisable(false);
+                    buttonSignIn.setText("Sign in");
+
+                    messageBox.setTitle("Confirmation code");
+                    messageBox.setHeaderText(null);
+
+                    messageBox.setContentText("Generated Code: " + generatedCode);
+                    messageBox.show();
+                }
+            }
 
             int password = Integer.parseInt(passwordField.getText());
 

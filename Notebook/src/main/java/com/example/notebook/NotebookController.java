@@ -2,13 +2,12 @@ package com.example.notebook;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -29,6 +28,7 @@ public class NotebookController {
     @FXML
     ObservableList<String> list = FXCollections.observableArrayList();
 
+
     public void initialize(){
         try {
             String computerName = InetAddress.getLocalHost().getHostName();
@@ -43,15 +43,16 @@ public class NotebookController {
 
     @FXML
     public void buttonClickAdd(){
-        String inputWords = inputField.getText();
-        list.add(inputWords);
-        listView.setItems(list);
+        if (!inputField.getText().isEmpty()){
+            String inputWords = inputField.getText();
+            list.add(inputWords);
+            listView.setItems(list);
+        }
     }
 
     @FXML
     public void buttonClickDelete(){
-        String inputWordsForDelete = inputField.getText();
-        list.remove(inputWordsForDelete);
+        list.remove(listView.getSelectionModel().getSelectedIndex());
         listView.setItems(list);
     }
 }
